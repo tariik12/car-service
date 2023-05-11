@@ -1,0 +1,31 @@
+[
+    
+    {   
+        "img": "https://iili.io/HScEw8J.jpg",
+        "_id": "635a0c0b64a6d231228942ae2",
+        "name": "Ali",
+        "rating": 5,
+        "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+    },
+    {   
+        "img": "https://iili.io/HScEw8J.jpg",
+        "_id": "635a0c0b64a6d231228942ae3",
+        "name": "Alamin",
+        "rating": 2,
+        "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+    },
+    {   
+        "img": "https://iili.io/HScEw8J.jpg",
+        "_id": "635a0c0b64a6d231228942ae4",
+        "name": "Amir",
+        "rating": 3,
+        "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+    },
+    {   
+        "img": "https://iili.io/HScEw8J.jpg",
+        "_id": "635a0c0b64a6d231228942ae5",
+        "name": "Awlad",
+        "rating": 5,
+        "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
+    }
+]
