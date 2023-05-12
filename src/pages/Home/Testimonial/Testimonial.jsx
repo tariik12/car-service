@@ -1,16 +1,31 @@
-import  { useEffect, useState } from 'react';
-import SwiperCore, { Virtual, Navigation, Pagination } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import { useEffect, useState } from "react";
+import TestCard from "./TestCard";
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "red" }}
+      onClick={onClick}
+    />
+  );
+}
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "green" }}
+      onClick={onClick}
+    />
+  );
+}
 
-
-
-SwiperCore.use([Virtual, Navigation, Pagination]);
 
 const Testimonial = () => {
     const [testimonials, setTestimonial] = useState([])
@@ -19,6 +34,40 @@ const Testimonial = () => {
         .then(res =>res.json())
         .then(data => setTestimonial(data))
     },[])
+        const settings = {
+          dots: true,
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                initialSlide: 2
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+          ],
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />
+        };
     return (
         <div>
              <div className="text-center mt-20">
@@ -26,40 +75,13 @@ const Testimonial = () => {
         <h4 className="text-4xl font-bold ">What Customer Says</h4>
         <p className="mt-6 mb-8 w-1/2 mx-auto space-x-3 space-y-3">the majority have suffered alteration in some form, by injected humour, or randomised words which do not look even slightly believable. </p>
         </div>
-        <Swiper
-       
-       slidesPerView={2}
-       centeredSlides={true}
-       spaceBetween={30}
-       pagination={{
-         type: 'fraction',
-       }}
-       navigation={true}
-       virtual
-     >
-       {testimonials.map((slideContent, index) => (
-        
-           <SwiperSlide key={slideContent._id} virtualIndex={index}>
-           <div className="card w-96 bg-base-100 shadow-xl">
- <div className="stats shadow">
-  <div className="stat">
-    <div className="stat-figure text-secondary">
-      <div className="avatar online">
-        
-          <h4>{slideContent.name}</h4>
-      </div>
-    </div>
-
-  </div>
-  
-   <p>{slideContent.details}</p>
-</div>
-</div>   
-      
-         </SwiperSlide>
-       ))}
-     </Swiper>
-
+        <Slider {...settings}>
+        {
+          testimonials.map(tes=><TestCard key={tes._id}
+          tes={tes}
+          ></TestCard>)
+        }  
+        </Slider>
         </div>
     );
 };
