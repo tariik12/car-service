@@ -1,5 +1,7 @@
 import log from '../../assets/images/login/login.svg'
-
+import { ImFacebook,ImTwitter } from "react-icons/im";
+import { GrInstagram,GrLinkedinOption } from "react-icons/gr";
+import { Link } from 'react-router-dom';
 const Login = () => {
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -22,8 +24,10 @@ const Login = () => {
           </label>
           <input type="text" placeholder="password" className="input input-bordered" />
           <label className="label">
-            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-          </label>
+                  <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                  
+                  <a href="#" className="label-text-alt link link-hover"> If no account? <Link to='/register'>Register</Link></a>
+                </label>
         </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
@@ -31,8 +35,12 @@ const Login = () => {
       </div>
       <div className='mx-auto w-1/2'>
         <h4 className='ms-10'>Or Sing In Width</h4>
-        <h4 className='ms-10'>Or Sing In Width</h4>
-        <h4 className='ms-10'>Or Sing In Width</h4>
+        <div className="card-actions flex p-10">
+<ImFacebook/>
+<ImTwitter/> 
+<GrInstagram/>
+<GrLinkedinOption/>
+   </div>
       </div>
     </div>
   </div>
